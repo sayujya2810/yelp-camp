@@ -60,6 +60,12 @@ app.put('/campgrounds/:id', async (req,res) =>{
     // Campground.findByIdAndUpdate(id , {title:"req.body.campground", location:""})
 })
 
+app.delete('/campgrounds/:id', async(req,res) => {
+    const { id } = req.params;
+    await Campground.findByIdAndDelete(id);
+    res.redirect('/campgrounds')
+})
+
 
 
 
