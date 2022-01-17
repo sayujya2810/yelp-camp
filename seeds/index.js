@@ -20,9 +20,13 @@ const seedDB = async () => {
     await Campground.deleteMany({});
     for(let i=0; i<50; i++){
         const random1000 = Math.floor(Math.random() * 1000);
+        const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
             location: `${cities[random1000].city} , ${cities[random1000].state}`,
-            title: `${sample(descriptors)} ${sample(places)}`
+            title: `${sample(descriptors)} ${sample(places)}`,
+            image:'https://source.unsplash.com/collection/483251',
+            description: 'Mollit nostrud quis aute proident anim ad ullamco nostrud sunt Lorem. Dolor magna fugiat id sunt. Est aliquip irure quis excepteur non amet laboris mollit enim culpa. Esse do deserunt adipisicing enim magna cillum labore nostrud fugiat excepteur irure nulla.',
+            price
         })
         await camp.save()
     }
